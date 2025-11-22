@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Navbar from "./components/navbar";
 
 type Theme = "light" | "dark";
 
@@ -26,48 +27,10 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prev => (prev === "dark" ? "light" : "dark"));
-  };
-
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-50 transition-colors duration-300">
-      {/* HEADER */}
-      <header className="border-b border-slate-200/60 dark:border-slate-800/80 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-amber-400 via-orange-500 to-rose-500 flex items-center justify-center text-xl">
-              🍽️
-            </div>
-            <div>
-              <span className="block text-lg font-semibold tracking-tight">
-                Gourmetize
-              </span>
-              <span className="block text-xs text-slate-500 dark:text-slate-400">
-                Experiências gastronômicas na palma da mão
-              </span>
-            </div>
-          </div>
 
-          {/* Ações + Dark mode */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-xs sm:text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            >
-              <span aria-hidden>{theme === "dark" ? "🌙" : "☀️"}</span>
-              <span className="hidden sm:inline">
-                {theme === "dark" ? "Modo escuro" : "Modo claro"}
-              </span>
-            </button>
-
-            <button className="hidden sm:inline-flex items-center rounded-full border border-transparent bg-slate-900 text-slate-50 dark:bg-amber-400 dark:text-slate-900 px-4 py-1.5 text-xs sm:text-sm font-medium hover:opacity-90 transition">
-              Entrar
-            </button>
-          </div>
-        </div>
-      </header>
+      <Navbar/>
 
       {/* MAIN */}
       <main className="max-w-6xl mx-auto px-4 py-10 sm:py-14 space-y-16">
