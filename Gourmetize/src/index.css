@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-/* Habilita a variante `dark:` baseada na classe `.dark` no HTML */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* Dica: deixa o browser preparado pra claro/escuro */
-:root {
-  color-scheme: light dark;
-}
 
 *,
 *::before,
