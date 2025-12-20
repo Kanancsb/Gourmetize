@@ -39,7 +39,7 @@ function App() {
           {/* Texto */}
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-50/70 px-3 py-1 text-xs font-medium text-amber-700 dark:bg-amber-400/10 dark:text-amber-300 dark:border-amber-400/30">
-              🍲 Novo • Plataforma Gourmetize
+              🍲 Novo • Plataforma Gourmetize nathy
             </span>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
