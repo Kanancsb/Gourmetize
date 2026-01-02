@@ -7,11 +7,19 @@ export default function Home() {
         <h1 className="text-3xl font-bold">Home</h1>
 
         <button
+<<<<<<< Updated upstream
   className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
   onClick={() => console.log("Buscar clicado")}
 >
   Buscar Produtores ou produtos 🔍
 </button>
+=======
+          className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
+          onClick={() => console.log("Buscar clicado")}
+        >
+          Buscar Produtores ou produtos 🔍
+        </button>
+>>>>>>> Stashed changes
       </div> {/* <-- fecha corretamente a barra superior */}
 
       {/* Conteúdo novo: "Meus pedidos", busca e tabela */}
@@ -55,4 +63,8 @@ export default function Home() {
       </section>
     </div>
   );
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
