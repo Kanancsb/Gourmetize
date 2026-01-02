@@ -8,17 +8,23 @@ export default function Home() {
 
         <button
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
   onClick={() => console.log("Buscar clicado")}
 >
   Buscar Produtores ou produtos 🔍
 </button>
 =======
+=======
+>>>>>>> Stashed changes
           className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
           onClick={() => console.log("Buscar clicado")}
         >
           Buscar Produtores ou produtos 🔍
         </button>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       </div> {/* <-- fecha corretamente a barra superior */}
 
@@ -64,7 +70,11 @@ export default function Home() {
     </div>
   );
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
 =======
 }
 >>>>>>> Stashed changes
