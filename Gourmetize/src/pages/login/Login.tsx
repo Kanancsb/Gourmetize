@@ -1,5 +1,7 @@
 import { useState } from "react";
-import logo from "../assets/imagens/logo.jpeg";
+import api from "../../services/api";
+import type { LoginResponse } from "../../types/auth";
+import logo from "../../assets/imagens/logo.jpeg";
 import {
   EyeIcon,
   EyeSlashIcon,
@@ -8,18 +10,36 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Login() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
-  // Força da senha (visual)
-  const strength =
-    password.length === 0
-      ? 0
-      : password.length < 6
-      ? 1
-      : password.length < 10
-      ? 2
-      : 3;
+
+  const handleLogin = async (): Promise<void> => {
+    setError("");
+    setLoading(true);
+
+    try {
+      await api.get("/sanctum/csrf-cookie");
+
+      const { data } = await api.post<LoginResponse>("/api/login", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      window.location.href = "/dashboard";
+    } catch (err: any) {
+      console.error(err);
+      setError(err.response?.data?.message ?? "Erro ao fazer login");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-emerald-50">
@@ -64,6 +84,8 @@ export default function Login() {
               <input
                 type="email"
                 placeholder="email@exemplo.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl bg-emerald-50 border border-emerald-300 pl-10 pr-4 py-2.5 text-sm text-emerald-900 placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
               />
             </div>
@@ -99,36 +121,15 @@ export default function Login() {
                 )}
               </button>
             </div>
-
-            {/* Força da senha */}
-            <div className="mt-2 flex gap-1">
-              <span
-                className={`h-1 w-full rounded transition ${
-                  strength >= 1 ? "bg-red-500" : "bg-emerald-200"
-                }`}
-              />
-              <span
-                className={`h-1 w-full rounded transition ${
-                  strength >= 2 ? "bg-amber-400" : "bg-emerald-200"
-                }`}
-              />
-              <span
-                className={`h-1 w-full rounded transition ${
-                  strength >= 3 ? "bg-emerald-500" : "bg-emerald-200"
-                }`}
-              />
-            </div>
-
-            <p className="mt-1 text-[11px] text-emerald-700">
-              {strength === 1 && "Senha fraca"}
-              {strength === 2 && "Senha média"}
-              {strength === 3 && "Senha forte"}
-            </p>
           </div>
 
           {/* Botão */}
-          <button className="w-full mt-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 text-sm font-semibold transition shadow-lg">
-            Entrar
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            className="w-full mt-4 rounded-xl bg-emerald-600 text-white py-2 font-semibold hover:bg-emerald-700 transition disabled:opacity-60"
+          >
+            {loading ? "Entrando..." : "Entrar"}
           </button>
 
           {/* Links */}

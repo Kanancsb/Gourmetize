@@ -7,34 +7,23 @@ export default function Home() {
         <h1 className="text-3xl font-bold">Home</h1>
 
         <button
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
-  onClick={() => console.log("Buscar clicado")}
->
-  Buscar Produtores ou produtos 🔍
-</button>
-=======
-=======
->>>>>>> Stashed changes
           className="flex items-center gap-2 border border-slate-900 px-4 py-2 rounded hover:bg-slate-100 transition"
           onClick={() => console.log("Buscar clicado")}
         >
           Buscar Produtores ou produtos 🔍
         </button>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-      </div> {/* <-- fecha corretamente a barra superior */}
+      </div>
 
-      {/* Conteúdo novo: "Meus pedidos", busca e tabela */}
+      {/* Conteúdo: Meus pedidos */}
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-3">Meus pedidos</h2>
 
-        {/* Barra de busca com botão */}
+        {/* Barra de busca */}
         <div className="flex items-center border border-gray-400 rounded-md w-fit px-3 py-1 mb-6">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+            onClick={() => console.log("Buscar tabela")}
+          >
             Buscar Produtores ou produtos
           </button>
         </div>
@@ -43,8 +32,12 @@ export default function Home() {
         <table className="w-full border border-gray-500 table-auto">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border border-gray-500 px-4 py-2 text-left">Pedidos feitos</th>
-              <th className="border border-gray-500 px-4 py-2 text-left">Produtores</th>
+              <th className="border border-gray-500 px-4 py-2 text-left">
+                Pedidos feitos
+              </th>
+              <th className="border border-gray-500 px-4 py-2 text-left">
+                Produtores
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -69,12 +62,4 @@ export default function Home() {
       </section>
     </div>
   );
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes

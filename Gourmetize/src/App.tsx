@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home/home";
 import Sobre from "./pages/sobre/sobre";
+import Login from "./pages/login/Login";
 
 type Theme = "light" | "dark";
 
@@ -39,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </main>
     </div>
